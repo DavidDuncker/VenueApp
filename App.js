@@ -1,22 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { useEffect } from 'react'
+import React from 'react'
 import { printSomething } from './helper_functions';
 
 
-export default function App() {
+export default class App extends React.Component {
 
-  useEffect(() => {
-    printSomething();
-}, [])
+  state = { text: "Open up App.js to start working on your app!"}
 
+  componentDidMount() {
+    printSomething()
+  }
 
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  render() {
+    return (
+      <View style={styles.container}>
+         <Text>{this.state.text}</Text>
+         <StatusBar style="auto" />
+      </View>
+      );
+
+  } ;
 
 }
 
